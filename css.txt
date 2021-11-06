@@ -1,0 +1,341 @@
+CSS(Cascading Style Sheets)
+Cascading: 계단식
+Style: 멋을 내다
+Sheets: 한장
+
+계단식으로 스타일을 정의하는 문서
+css는 html 문서에 스타일을 더해준다
+
+CSS문서 자체는 독립적으로 존재할 수 있지만, 그 목적이 구조화된 HTML
+문서의 스타일을 정의하는데 있으므로 html 문서가 없는 css 문서는
+의미가 없다!!
+
+html과 함께 사용되지 않는 css는 단순 텍스트일 뿐이며 웹브라우저를 통해
+결과물을 확인하려면 반드시 html문서의 작성이 선행되어야 한다!
+
+- 기본 형태
+선택자{
+    속성명: 속성값;
+}
+
+선택자: 어떤 요소에 스타일을 적용 할지에 대한 정보
+{중괄호}: 선택한 요소에 적용할 스타일을 정의하는 영역
+속성명 : 어떤 스타일을 정의하고 싶은지에 대한 정보(색상, 크기 등)
+속성값 : 어떻게 정의하고 싶은지에 대한 정보
+
+ex)
+p{
+    color: red;
+}
+ex) 선택자 p태그에 스타일을 적용하겠다
+    중괄호 이 안에 p태그에 대한 스타일을 정의하겠다
+    속성명 color를 정의하겠다(글자색 의미)
+    속성값 red로 정의하겠다
+
+HTML에 CSS 문서를 적용하고자 할떄
+1. 인라인 스타일 : 태그에 직접 기술하기
+2. 스타일 태그 : 스타일시트를 위한 태그를 추가하여 기술하기
+3. 문서 간의 연결 : 스타일시트 문서를 따로 작성하여 HTML문서와 연결하기
+
+1.인라인 예시
+<p style="color: blue;">
+    글자를 파랗게 만들어줘
+</p>
+태그에 style 속성을 추가하여 요소에 직접적으로 스타일을 정의하는 방식
+따라서 선택자는 필요 없다
+웹 콘텐츠와 스타일시트를 분리하기 위해서는 사용하지 않는 편이 좋다
+
+2. 스타일 태그 예시- 주로 head 태그안에 작성
+<style>
+ /* 스타일 태그 안에는 css 코드를 작성해야 한다 */
+ p{ color: red; }
+<style>
+↓↓↓↓↓↓
+<head>
+    <meta charset="utf-8">
+    <title>css_practice</title>
+    <style>
+        p{
+            color: red;
+            font-size: 32px;
+        }
+    </style>
+</head>
+
+
+3. 문서 간의 연결
+확장자가 css인 스타일시트 파일을 생성해 그 안에 css 코드를 작성하고
+html 문서에 연결 이때 <link> 태그를 사용 (헤더,소스 파일 나누는거랑 비슷한듯하다)
+<link href="./style.css" rel="stylesheet">
+href = 연결하고자 하는 url을 기술
+rel = 현재 문서(html)와 외부 소스의 연관 관계를 기술
+<link> 태그는 html 문서의 head태그 내부에서 사용해야 한다
+
+
+선택자!!
+종류
+- 기본 선택자
+- 그룹 선택자
+- 특성 선택자
+- 결합 선택자
+- 의사 클래스
+- 의사 요소
+
+이번엔 기본,그룹 선택자만
+----------------------------------------------------------
+기본 선택자
+1. 전체 선택자
+모든 요소를 선택한다
+*{
+    color: blue;
+}
+- 문서 내 모든 요소의 글자 색을 파란색으로
+
+2. 태그 선택자(유형 선택자)
+주어진 이름을 가진 요소가 다수일 경우 해당 요소들을 모두 선택한다
+p{
+    color: blue;
+}
+- 문서내 모든 p태그의 요소들을 파란색으로 
+
+3. 클래스 선택자
+.text{
+    color: blue;
+}
+- 문서내 class가 "text"인 모든 요소의 글자 색을 파란색으로 지정한다
+
+4. id 선택자
+#topic{
+    color: blue;
+}
+- 문서내 id가 "topic"인 요소의 글자 색을 파란색으로 지정한다
+----------------------------------------------------------
+그룹 선택자
+: 다양한 유형의 요소를 한꺼번에 선택하고자 할 떄 사용한다
+  ,를 이용해 선택자를 그룹화한다.
+h1, p, div{
+    color: blue;
+}
+- 문서내 모든 h1,p,div 태그요소의 글자 색을 파란색으로
+
+----------------------------------------------------------
+선택자가 겹치는 경우, 기본적으로 나중에 작성된 스타일이 적용된다.
+
+선택자 우선순위
+아이디 선택자 > 클래스 선택자 > 태그 선택자
+
+----------------------------------------------------------
+
+텍스트 관련 속성
+font-family: 글꼴을 정의한다
+font-size:   글자 크기를 정의한다
+text-align:  정렬 방식을 정의한다
+color:       글자 색상을 정의한다
+
+font-family
+- 요소를 구성하는 텍스트의 글꼴을 정의한다.
+- 글꼴명은 속성값으로 지정, 여러개의 글꼴을 연달아 기입하여 우선순위 지정
+*{
+    font-family: Times, monospace, serif;
+}
+-> Times를 우선 지정하되, 지원되지 않을 경우 monospace를 지정한다
+
+font-size
+- 수치와 단위를 지정해 글자의 크기를 정의할 수 있다.
+대표적인 단위 3가지
+px(픽셀) - 모니터 상의 화소 하나 크기에 대응하는 "절대"적인 크기
+rem() - <html> 태그의 font-size에 대응하는 "상대"적인 크기
+em() - 부모태그(상위태그)의 font-size에 대응하는 "상대"적인 크기
+
+ex)  html{font-size: 12px;}
+     h1{font-size: 2rem;}
+     p{font-size: 16px;}
+     span{font-size: 5em;}
+
+
+text-align
+- 블록 내에서 텍스트의 정렬방식을 정의한다. 미리 정의된 키워드 값을 지정한다.
+속성값: left,right (왼쪽,오른쪽)
+        center (가운데)
+        justify 양끝정렬한다(마지막 줄 제외)
+
+
+color
+- 텍스트의 색상을 정의한다. 다양한 방법이있다.
+키워드 : 미리 정의된 색상별 키워드를 사용
+RGB 색상 코드 : # + 여섯자리 16진수 값 형태
+RGB 함수 : Red,Green,Blue의 수준을 각각 정의해 지정한다
+
+ex)
+<style>
+        p{ text-align: justify;
+            color: #FF00FF;
+            color: rgb(70%,10%,20%);
+        }
+    </style> 
+
+
+블록 레벨 요소
+ex) div,p,h1
+
+인라인 요소
+ex) span, a
+
+display 속성
+- 요소를 블록과 인라인 요소중 어느 쪽으로 처리할지를 결정
+속성값 
+- inline : 인라인으로 처리한다
+- block : 블록 레벨로 처리한다
+- inline-block : 인라인으로 배치하되, 블록 요소의 속성을 추가할 수 있도록 처리한다
+- none : 디스플레이(표시)하지 않는다.
+☞ 이 이외에도 다양한 속성값이 존재한다
+
+border 속성
+- 요소가 차지하고 있는 영역에 테두리를 그릴 수 있다.
+- border는 속성값으로 테두리의 두께, 모양, 크기 등을 함께 지정할 수 있는데
+  이를 "단축속성" 이라 한다.
+- border 속성의 하위 속성
+- border-color : 색상지정
+- border-width : thin,medium,thick 등의 키워드 또는 px,em,rem 등의 단위
+- border-style : none(기본값),solid(직선),dotted(점선),dashed(긴 점선)등
+
+↑↑↑↑↑↑↑
+<head>
+    <meta charset="utf-8">
+    <title>css_practice</title>
+    <style>
+        div{
+            border: 3px solid red;
+            display: none;
+        }
+        span{
+            border-width: 5px;
+            border-style: dashed;
+            border-color: rgb(100%,50%,0%);
+            display: inline-block;
+        }
+    </style>    
+</head>
+<body>
+    <div>나는야 블록 레벨</div>
+    <span>나는야 인라인</span>
+</body>
+
+----------------------------------------------------------------
+박스모델 1편
+박스모델 : 브라우저가 HTML 문서를 가져와 요소를 렌더링 할 때
+각각의 요소는 기본적으로 사각형 형태로 영역을 차지하게 된다.
+이 영역을 '박스'라 표현하며 CSS는 박스의 크기,위치,속성(색,배경,테두리)
+등을 결정할 수 있다.
+
+하나의 박스는 네개의 영역으로 구성된다.
+- 콘텐츠 영역 :속성 width, height
+- 안쪽 여백 : 속성 padding
+- 경계선(테두리=border) : 속성 border-width
+- 바깥쪽 여백 : 속성 속성 margin
+
+<head>
+    <meta charset="utf-8">
+    <title>css_practice</title>
+    <style>
+       div{
+           border: 3px solid red;
+           padding: 10px;
+           margin: 20px;
+           width: 90px;
+           height: 35px;
+       }
+       span{
+           width: 100px;
+           height: 100px;
+           display: inline-block;
+       }
+    </style>    
+</head>
+<body>
+    <div>요소의 콘텐츠</div>
+    <span>check</span>
+</body>
+
+span은 인라인 요소라서 width랑 height를 지정할 수 없는데
+display: inline-block 를 사용하게 되면 inline 요소에서 block 속성을 사용할수 있게 된다.
+
+-------------------------------------------------
+박스모델2편
+
+margin과 padding을 사용해서 바깥쪽 여백과 안쪽 여백을 정의할떄
+상하좌우 네 개의 면을 개별적으로 두께를 정의할 수 있다.
+이 때 사용되는 방법은
+- 하위 속성 정의하기
+- 여러 값을 한번에 정의하기
+
+하위 속성 정의하기
+ padding-top, padding-left, padding-right, padding-bottom
+ margin도 마찬가지
+
+여러값을 한번에 정의하기
+span{
+    display: inline-block;
+    width: 100px; height: 100px;
+    margin: 10px 20px 30px 40px;
+}
+margin에 값이 한개가 들어가면 상하좌우
+두개가 들어가면 첫번째는 상하, 두번째값은 좌우를 나타낸다
+세개가 들어가면 상, 좌우, 하 순이다
+네개가 들어가면 상,오,아,왼 시계방향으로 지정이된다
+
+------------------------------------------------
+박스모델 3편
+박스 크기를 계산하는 방법
+- 테두리까지가 요소로 잡힌다 즉 콘텐츠 + border(경계선) + padding(안쪽 경계)
+가 요소의 크기이다
+
+box-sizing 속성
+: 요소의 너비와 높이를 계산하는 방법을 지정한다
+content-box : 기본값, 너비와 높이가 콘텐츠 영역만을 포함한다.
+border-box : 너비와 높이가 안쪽 여백과 테두리까지 포함한다.
+-> 너비와 높이가 같더라도 box-sizing 속성값에 따라 크기가 달라질수 있다.
+
+<style>
+       div{
+           box-sizing: content-box;
+           width: 100px; height: 100px;
+           border: 5px solid tomato;
+           padding: 30px;
+       }
+    </style>  
+padding과 border이 아무리 커져도 콘텐츠의 크기는 100px로 고정시켜준다
+
+---------------------------------------------------
+박스모델 4편
+콘텐츠에도 배경이 있다
+
+background 단축 속성으로써 색상, 이미지, 반복 등 다양한 하위
+속성을 정의할 수 있다.
+
+하위속성
+- background-color  : 배경 색을 정의한다.
+- background-image  : 배경 이미지를 정의한다.
+- background-position   : 배경 이미지의 초기 위치를 정의한다
+- background-size   : 배경 이미지의 크기를 정의한다.
+- background-repeat : 배경 이미지의 반복 방법을 정의한다.
+
+background-image: url();
+url을 사용해서 이미지를 가져온다
+
+background-repeat: no-repeat;
+이미지의 반복을 안하게끔 한다
+
+background-position: top;
+배경이미지의 위치를 top으로
+left,right,center,bottom등이 있다
+
+background-size: cover;
+이미지가 꺠지지 않는 선에서 가장 큰 사이즈로 지정한다
+
+background-size: contain;
+이미지가 깨지거나 잘리지 않는 한도내에서 가장 큰 사이즈
+
+하위 속성들이 많다보니깐 경우의 수가 매우 많이 생기므로
+스스로 해보면서 익히는게 좋겠다
+
