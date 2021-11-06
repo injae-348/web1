@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="injae">
+  <meta name="description" content="상상">
+  <meta name="keywords" content="상상, 꿈, 희망">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상상공간</title>
+<style>
+    p{
+      color: blue;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      text-align: center;
+   }
+   div{
+     display:inline-block;
+     border: 9px solid olive;
+   }
+  span{
+    display: inline-block;
+    box-sizing:content-box;
+    border: 3px solid springgreen;
+    width: 150px; height: 150px;
+    padding: 10px;
+    margin: 10px;
+    background-image: url(./꿈\,\ 그리고.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+</style>
+</head>
+<body>
+
+  <h1 id="제목">어세오세요~! 상상공간에!</h1>
+  <span>
+  <p>여러분은 <strong>꿈</strong>을 꿔보신적이 있나요?</p>
+  <p>우리 같이 <strong>꿈</strong>에 대해 이야기 해봐요!</p>
+  </span>
+  <hr>
+  <div id="이미지">
+  <img src="꿈, 그리고.png" alt="꿈, 그리고" width="320" height="240" title="꿈, 그리고">
+  </div>
+  <hr>
+  <ul>
+    <li>자유 게시판</li>
+    <li>상상 게시판</li>
+    <li>유머 게시판</li>
+    <li>1인 게시판</li>
+  </ul>
+
+  <a href="https://search.naver.com/search.naver?where=image&sm=tab_jum&query=%EA%BF%88"
+  target="_blank">위 이미지를 검색한 주소</a><br>
+
+  <input name="color" type="color"><br>
+  <input name="text" type="text" placeholder="아무거나">
+  <input name="push" type="button"><br>
+  <input name="date" type="date"><br>
+  <input name="scor" type="range"><br>
+  <input type="datetime-local">
+<br>
+  <select name="pet">
+    <option value="dog" selected>강아지</option>
+    <option value="cat">고양이</option>
+    <option value="parrot">앵무새</option>
+    <option value="donkey">동키</option>
+    <option value="cow">소</option>
+  </select>
+<br><br>
+
+<textarea name="아무거나2" rows="10" cols="10" placeholder="아무거나">기본적으로 써있는 텍스트 에리어</textarea>
+
+<form action="example.php" method="POST">
+  <input type="text" placeholder="NAME" name="name">
+      <br>
+      <select>
+        <option value="dog">강아지</option>
+        <option value="cat">고양이</option>
+        <option value="parrot">앵무새</option>
+      </select>
+      <br>
+      <input type="submit" value="전송">
+</form>
+
+</body>
+</html>
